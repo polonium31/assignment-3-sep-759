@@ -1,0 +1,26 @@
+<!-- app/views/products/show.html.erb -->
+
+<div class="container mt-4">
+  <div class="product-details">
+    <% if @product.present? %>
+      <div class="product-container">
+        <h1 class="display-4"><%= @product['title'] %></h1>
+        <div class="text-center">
+          <%= image_tag(@product['image'], height: '250', width: '250', class: 'img-fluid rounded border-2') %>
+        </div>
+        <div class="mt-3">
+          <p class="lead"><strong>Description:</strong> <%= @product['description'] %></p>
+          <p class="lead"><strong>Price:</strong> <%= @product['price'] %></p>
+          <p class="lead"><strong>Category:</strong> <%= @product['category'] %></p>
+          <p class="lead"><strong>Rating:</strong> <%= "#{@product['rating']['rate']} (#{@product['rating']['count']} reviews)" %></p>
+        </div>
+      </div>
+
+      <%= link_to 'Back to Products', '/', class: 'btn btn-secondary mt-3' %>
+
+    <% else %>
+      <p class="lead">Product not found</p>
+      <%= link_to 'Back to Products', '/', class: 'btn btn-secondary mt-3' %>
+    <% end %>
+  </div>
+</div>
